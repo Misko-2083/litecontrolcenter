@@ -211,7 +211,7 @@
                     <li>
                         <a href="#tab-5" class="ico4"><span>{string_20}</span><em></em></a>
                     </li>
-                    <li>
+                    <li data-menusort="1">
                         <a href="#tab-6" class="ico1"><span>{string_1}</span><em></em></a>
                     </li>
                 </ul>
@@ -226,6 +226,57 @@
             function themeInst () {
                 location.href = 'themeinstall://' + document.getElementById("file").value
             }
+            (function() {
+                //Sort sidebar
+                var sorter = function(a, b) {
+                    var aindex = $(a).data('menusort') || null,
+                        bindex = $(b).data('menusort') || null;
+
+                    if (aindex !== bindex && (Number.isFinite(aindex) || Number.isFinite(bindex))) {
+                        return (aindex || bindex + 1) - (bindex || aindex + 1);
+                    }
+
+                    var atext = $(a).text().trim(),
+                        btext = $(b).text().trim();
+                    var s = [atext, btext];
+                    s.sort();
+                    if (s[0] == atext)
+                        return -1;
+                    else
+                        return 1;
+                };
+                var sidebarMenu = $('#sidebar ul');
+                var menuItems = sidebarMenu.children('li');
+                menuItems.sort(sorter);
+                menuItems.detach().appendTo(sidebarMenu);
+
+            })();
+
+            //Sort each tab's div.contents
+            (function() {
+                var sorter = function(a, b) {
+                    var aindex = $(a).data('menusort') || null,
+                        bindex = $(b).data('menusort') || null;
+
+                    if (aindex !== bindex && (Number.isFinite(aindex) || Number.isFinite(bindex))) {
+                        return (aindex || bindex + 1) - (bindex || aindex + 1);
+                    }
+
+                    var atext = $(a).children('h3').text().trim(),
+                        btext = $(b).children('h3').text().trim();
+                    var s = [atext, btext];
+                    s.sort();
+                    if (s[0] == atext)
+                        return -1;
+                    else
+                        return 1;
+                };
+                $('.tab div[id="contents"]').each(function(i, tab) {
+                    var tabContentItems = $(tab).children('div.launcher');
+                    tabContentItems.sort(sorter);
+                    tabContentItems.detach().appendTo($(tab));
+                });
+            })()
         </script>
     </body>
 </html>
