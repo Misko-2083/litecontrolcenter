@@ -2,7 +2,10 @@ import os
 import sys
 import subprocess
 
-from configparser import ConfigParser
+if sys.version_info >= (3, 0):
+    from configparser import ConfigParser
+else:
+    from ConfigParser import ConfigParser
 
 from gi.repository import Gtk as gtk
 from gi.repository.GdkPixbuf import Pixbuf
@@ -12,7 +15,7 @@ from locale import getdefaultlocale
 
 """
 # Linux Lite Control Center
-# Developers - John 'ShaggyTwoDope' Jenkins, Jerry Bezencon, Brian 'DarthLukan' Tomlinson, Milos Pavlovic
+# Developers - John 'ShaggyTwoDope' Jenkins, Jerry Bezencon, Brian 'DarthLukan' Tomlinson
 # Dependencies - python, python-webkit
 # Licence - GPL v2
 # Website - http://www.linuxliteos.com
@@ -64,7 +67,7 @@ MA 02110-1301, USA. ''')
                 "Johnathan 'ShaggyTwoDope' Jenkins\n<shaggytwodope@linuxliteos.com>",
                 "Jerry Bezencon\n<valtam@linuxliteos.com>\n",
                 "Brian 'DarthLukan' Tomlinson\n<brian.tomlinson@linux.com>\n",
-                "Milos Pavlovic\n"
+		"Milos Pavlovic\n"
             ]
         )
         about.set_comments("Designed for Linux Lite")
