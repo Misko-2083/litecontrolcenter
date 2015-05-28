@@ -12,7 +12,7 @@ from locale import getdefaultlocale
 
 """
 # Linux Lite Control Center
-# Developers - John 'ShaggyTwoDope' Jenkins, Jerry Bezencon, Brian 'DarthLukan' Tomlinson
+# Developers - John 'ShaggyTwoDope' Jenkins, Jerry Bezencon, Brian 'DarthLukan' Tomlinson, Milos Pavlovic
 # Dependencies - python, python-webkit
 # Licence - GPL v2
 # Website - http://www.linuxliteos.com
@@ -63,7 +63,8 @@ MA 02110-1301, USA. ''')
             [
                 "Johnathan 'ShaggyTwoDope' Jenkins\n<shaggytwodope@linuxliteos.com>",
                 "Jerry Bezencon\n<valtam@linuxliteos.com>\n",
-                "Brian 'DarthLukan' Tomlinson\n<brian.tomlinson@linux.com>\n"
+                "Brian 'DarthLukan' Tomlinson\n<brian.tomlinson@linux.com>\n",
+                "Milos Pavlovic\n"
             ]
         )
         about.set_comments("Designed for Linux Lite")
