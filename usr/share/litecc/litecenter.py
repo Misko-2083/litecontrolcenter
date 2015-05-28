@@ -212,9 +212,9 @@ def frontend_fill():
     filee = open("{0}/frontend/default.html".format(app_dir), "r")
     page = filee.read()
 
-    for i in ['os', 'arc', 'processor', 'mem', 'gfx', 'audio', 'kernel', 'host', 'netstatus', 'netip']:
+    """for i in ['os', 'arc', 'processor', 'mem', 'gfx', 'audio', 'kernel', 'host', 'netstatus', 'netip']:
         # TODO: Can't use str.format here, breaks other substitutions
-        page = page.replace("{%s}" % i, get_info(i))
+        page = page.replace("{%s}" % i, get_info(i))"""
 
     sections = ['software', 'system', 'desktop', 'hardware', 'networking']
     sections.sort()
